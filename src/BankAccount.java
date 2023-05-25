@@ -2,7 +2,7 @@ import java.util.ArrayList;
 public class BankAccount {
     String accountNumber, currency;
     double balance;
-    static ArrayList <String> log;
+    ArrayList <String> log;
 
 
     public BankAccount(String accountNumber, double balance) {
@@ -51,8 +51,21 @@ public class BankAccount {
     }
 
     public void printLog() {
+//        Prints the transaction log of this account
         for (String entry : log) {
             System.out.println(entry);
+        }
+    }
+
+    public void transaction(boolean recipient, double amount, String otherAccount) {
+//        Checks whether this is the account that receives the money, then either adds or subtracks it.
+        if (recipient) {
+            deposit(amount);
+            log.set(log.size() -1, "Transfer of " + amount + " received from " + otherAccount);
+        }
+        else {
+            withdraw(amount);
+            log.set(log.size() -1, "Transferred " + amount + " to " + otherAccount);
         }
     }
 }

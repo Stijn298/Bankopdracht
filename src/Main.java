@@ -41,6 +41,14 @@ public class Main {
         System.out.println(bank.getAccount("NL01ABCD1234567890"));
         bank.currencyExchange("NL01ABCD1234567890");
         System.out.println(bank.getAccount("NL01ABCD1234567890"));
+
+        // Log controleren
+
+        System.out.println("Printing log");
+        bank.getAccount("NL01ABCD1234567890").printLog();
+        System.out.println("Printing second log");
+        bank.getAccount("NL02EFGH1234567890").printLog();
+
     }
 }
 
